@@ -279,4 +279,100 @@ Esse conjunto permite que a operação Hermes Log funcione com mais previsibilid
 - [x] Criar base no Notion com as páginas exigidas
 - [x] Redigir governança de dados com responsabilidades, revisão e riscos
 - [x] Documentar vantagem dos dados semânticos sobre dados brutos
+
+<!-- PAGEBREAK -->
+
+# 10. Pendências externas e evidências
+
+Esta seção registra tudo que ainda depende de execução em plataformas externas. O material local foi preparado, testado quando possível e publicado no repositório, mas não se deve confundir especificação ou arquivo importável com publicação efetiva em uma conta SaaS.
+
+## 10.1 Miro
+
+**Pendente:** criar o fluxograma diretamente em um board do Miro.
+
+**Motivo:** não houve acesso autenticado ao workspace ou ao board.
+
+**Necessário:** link do board com permissão de edição e indicação do local onde o fluxo deve ser inserido.
+
+**Evidência local:** [artefatos/02_fluxo_pos_venda.mmd](../artefatos/02_fluxo_pos_venda.mmd), contendo início, fim, atividades, decisões, looping e critérios de automação.
+
+## 10.2 Google Sheets
+
+**Pendente:** criar ou abrir a planilha online, importar os datasets e criar a aba `Matriz RACI`.
+
+**Motivo:** não houve acesso autenticado à conta Google.
+
+**Necessário:** planilha com permissão de edição e confirmação dos nomes das abas.
+
+**Evidências locais:** [dados/handoff_vendas_posvenda.csv](../dados/handoff_vendas_posvenda.csv), [dados/pesquisa_satisfacao.csv](../dados/pesquisa_satisfacao.csv) e [artefatos/03_matriz_raci.csv](../artefatos/03_matriz_raci.csv). O handoff contém 30 pedidos, 10 campos obrigatórios e nenhuma linha incompleta.
+
+## 10.3 Google Forms
+
+**Pendente:** criar o formulário com `ID do Pedido`, `Nota NPS (0-10)` e `Comentário`, vinculando as respostas à planilha.
+
+**Motivo:** depende de acesso à conta Google e à planilha de destino.
+
+**Necessário:** conta Google com permissão de edição e confirmação do nome do formulário.
+
+## 10.4 n8n, Gemini e Gmail
+
+**Pendente:** configurar o gatilho real do Google Sheets, Pin Data, nó Gemini, nós Gmail e executar os testes reais de detrator e promotor.
+
+**Motivo:** o workspace n8n e as credenciais Google/Gemini não estavam disponíveis. O workflow local foi mantido inativo para não enviar mensagens ou usar credenciais reais.
+
+**Necessário:** URL e acesso ao workspace n8n, credenciais configuradas diretamente na plataforma, chave Gemini inserida no n8n e uma caixa de e-mail de teste.
+
+**Evidências locais:** [artefatos/05_n8n_workflow.json](../artefatos/05_n8n_workflow.json) e [artefatos/05_n8n_configuracao_producao.md](../artefatos/05_n8n_configuracao_producao.md). O JSON possui o workflow `Hermex — NPS Automação`, ramificação para nota menor que 6, classificação fechada, caminho de agradecimento e portão de aprovação humana.
+
+**Limite:** os arquivos locais comprovam o desenho e a preparação, não comprovam envio de e-mails nem execução no n8n online.
+
+## 10.5 Looker Studio
+
+**Pendente:** conectar a fonte online, ajustar tipos, criar os campos calculados e montar as quatro visualizações.
+
+**Motivo:** a planilha online e a conta Google autenticada não estavam disponíveis.
+
+**Necessário:** acesso de edição ao Looker Studio e à planilha `pesquisa_satisfacao`.
+
+**Evidência local:** [artefatos/06_looker_studio.md](../artefatos/06_looker_studio.md), com tipos de dados, NPS em porcentagem, médias de dias, scorecards, mapa, barras e tabela.
+
+## 10.6 Notion
+
+**Pendente:** criar o database `Processos Hermex Log` e as páginas de Política de Devolução, Processo de Reembolso e SLA de Entrega por Região.
+
+**Motivo:** não houve acesso autenticado ao workspace Notion.
+
+**Necessário:** link da página pai ou workspace, permissão de edição e responsáveis oficiais.
+
+**Evidência local:** [artefatos/07_notion_base_conhecimento.md](../artefatos/07_notion_base_conhecimento.md), com as três páginas e as faixas regionais de SLA.
+
+## 10.7 Teste do GPT publicado
+
+**Pendente:** repetir os cenários SP, BA e AM dentro de um GPT publicado no GPT Builder.
+
+**Motivo:** o acesso ao GPT Builder não estava disponível.
+
+**Evidência local:** [artefatos/09_testes_assistente_prazos.md](../artefatos/09_testes_assistente_prazos.md), com os três resultados observados no motor local. Os testes retornaram as regiões corretas, prazo de 5 a 5 dias corridos e observação operacional.
+
+**Limite:** a evidência local não equivale a uma captura ou execução dentro do GPT Builder.
+
+## 10.8 Requisitos gerais para concluir as pendências
+
+- acesso autenticado às contas Miro, Google, n8n, Notion e GPT Builder
+- permissões de edição nos recursos correspondentes
+- definição das caixas de e-mail de teste e operacionais
+- credencial Gemini configurada diretamente no n8n
+- autorização para executar testes e gerar evidências externas
+- links, capturas ou exportações das plataformas após a execução
+
+Segredos, senhas, tokens e chaves de API não devem ser enviados pelo chat. Devem ser inseridos diretamente nos campos de credenciais das plataformas.
+
+## 10.9 Evidências de conclusão local
+
+- testes automatizados: 9 aprovados e 0 falhas
+- três cenários do assistente executados localmente: SP, BA e AM
+- dataset de handoff validado: 30 pedidos, 10 campos obrigatórios e 0 linhas incompletas
+- workflow n8n local preparado e inativo
+- relatório Word gerado em `Analise/relatorio_final_hermex_log.docx`
+- repositório publicado na branch `main`
 - [x] Preparar material em Word para entrega
