@@ -11,13 +11,13 @@
 ```text
 Promotores: IF(nota_nps > 8, 1, 0)
 Detratores: IF(nota_nps < 7, 1, 0)
-NPS: ((SUM(Promotores) / COUNT(nota_nps)) - (SUM(Detratores) / COUNT(nota_nps))) * 100
+NPS: (SUM(Promotores) / COUNT(nota_nps)) - (SUM(Detratores) / COUNT(nota_nps))
 Dias até envio: DATE_DIFF(data_envio, data_pedido)
 Dias até entrega: DATE_DIFF(data_recebimento, data_pedido)
 SLA cumprido: IF(DATE_DIFF(data_recebimento, data_pedido) <= 5, 1, 0)
 ```
 
-O NPS deve ser exibido em pontos, de -100 a 100. Se for formatado como porcentagem, remover o `* 100`.
+O NPS deve ser formatado como porcentagem.
 
 ## Visualizações
 
