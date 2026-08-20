@@ -12,7 +12,15 @@ flowchart TD
   H -- Não --> K(Enviar agradecimento e aguardar aprovação humana)
   J --> Z([Fim — Ciclo encerrado])
   K --> Z
+
   classDef auto stroke:#d32f2f,stroke-width:3px,fill:#fff5f5;
   class A,B,C,E,F,G,J,K auto;
 
-%% Critérios: A/B/F/J/K = repetitividade, transferência e rastreabilidade; C/E = criticidade e rastreabilidade; G = regras claras e repetitividade.
+%% Critérios de automação:
+%% A = repetitividade + regras claras + rastreabilidade
+%% B = transferência de informações entre equipes + rastreabilidade
+%% C = criticidade + rastreabilidade
+%% E = criticidade + rastreabilidade + looping de verificação
+%% F = repetitividade + regras claras
+%% G = regras claras + rastreabilidade
+%% J/K = repetitividade + transferência de informações + aprovação humana
