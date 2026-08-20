@@ -1,0 +1,30 @@
+# Node / JS
+node_modules/
+.npm/
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# Logs
+*.log
+
+# Generated local artifacts
+Analise/_lo_impl/
+Analise/_lo_impl2/
+Analise/_lo_profile/
+Analise/_render_implementacao/
+Analise/_render_relatorio/
+**/cache/
+**/crash/
+**/tmp/
+**/*.tmp
+**/*.bak
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
