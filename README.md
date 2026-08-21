@@ -1,6 +1,46 @@
 # Hermex Log - Projeto NPS
 
-Implementacao local e reproduzivel do Desafio Hermex Log - Especialista em IA, Nivel 1. O projeto entrega regras de SLA, classificacao de feedback, calculo de NPS, roteamento de mensagens, artefatos importaveis para as plataformas SaaS e relatorios de validacao.
+Implementacao local e reproduzivel do Desafio Hermex Log - Especialista em IA, Nivel 1. O projeto entrega regras de SLA, classificacao de feedback, calculo de NPS, roteamento de mensagens, artefatos importaveis para as plataformas SaaS, evidencias visuais e relatorios de validacao.
+
+## Cenario de negocio
+
+A Hermex Log e uma operacao de logistica que precisa acompanhar a experiencia do cliente apos a entrega dos pedidos. O desafio do projeto e transformar sinais dispersos de atendimento, prazo e satisfacao em um fluxo simples de operacao: consultar prazo prometido, registrar handoff entre vendas e pos-vendas, captar feedback do cliente, identificar rapidamente detratores e consolidar tudo em um painel gerencial.
+
+Do ponto de vista de negocio, este projeto responde a tres dores principais:
+
+- falta de padronizacao do SLA por estado;
+- demora para acionar pos-vendas quando um cliente relata atraso, defeito ou falha operacional;
+- ausencia de uma visao consolidada do NPS por estado para orientar decisoes.
+
+O objetivo final foi montar uma solucao auditavel, com automacao controlada e aprovacao humana, capaz de apoiar atendimento, analise e governanca sem expor credenciais no repositorio.
+
+## Perguntas respondidas pelo projeto
+
+Estas foram as perguntas de negocio e implementacao respondidas ao longo da entrega:
+
+1. Como consultar o prazo de entrega por UF de forma padronizada?
+2. Como registrar o fluxo de handoff entre vendas e pos-vendas com responsabilidades claras?
+3. Como coletar feedback de satisfacao com identificacao do pedido?
+4. Como classificar um feedback como detrator para acionar acompanhamento?
+5. Como automatizar alertas e mensagens de agradecimento com seguranca?
+6. Como consolidar o NPS geral e a leitura por estado em dashboard?
+7. Como manter uma base de conhecimento com politicas e SLA acessiveis ao time?
+8. Como organizar evidencias suficientes para correcao, mesmo se algum link externo falhar?
+
+## Ferramentas utilizadas
+
+Cada ferramenta foi usada com um papel especifico na solucao:
+
+- `ChatGPT / GPT customizado`: consulta de prazo por UF e testes orientados.
+- `Miro`: modelagem visual do fluxo operacional com decisao, loop e automacoes.
+- `Google Sheets`: base de handoff, matriz RACI e base consolidada de respostas NPS.
+- `Google Forms`: coleta estruturada de satisfacao com `id_pedido`, nota e comentario.
+- `n8n`: automacao de classificacao, roteamento de detratores e agradecimentos.
+- `Gmail`: evidencia de e-mails de alerta e retorno automatizado.
+- `Looker Studio`: dashboard com scorecards, mapa, grafico e tabela por estado.
+- `Notion`: base de conhecimento operacional com politicas, reembolso e SLA.
+- `Node.js`: implementacao local das regras e scripts reproduziveis.
+- `npm test`: validacao automatizada das regras do projeto.
 
 ## Pacote para correcao
 
@@ -35,22 +75,70 @@ Resultado esperado:
 | `npm run demo` | Consulta de prazo, detrator, promotor e NPS demonstrados |
 | `npm run data` | 60 respostas NPS e 30 registros de handoff validados |
 
+## Como validar a entrega
+
+Para revisar o projeto ponta a ponta sem depender apenas das plataformas externas:
+
+1. Leia este `README.md` para entender o cenario, regras e acessos.
+2. Execute `npm test` para validar a implementacao local.
+3. Consulte a pasta `artefatos/` para os arquivos prontos de importacao e configuracao.
+4. Abra os relatorios em `Analise/` para ver a validacao e a analise executiva.
+5. Abra `Analise/Evidencias_Projeto_Hermex_Log.docx` para revisar as evidencias visuais em ordem de correcao.
+6. Se necessario, confira tambem as imagens originais em `Analise/evidencias/`.
+
 ## Links de leitura para o professor
 
 Antes de enviar, confirme que os links abaixo estao com permissao de leitura para o professor. Onde estiver `PREENCHER`, cole o link compartilhavel gerado pela propria ferramenta.
 
 | Entrega externa | Link de leitura | Status |
 |---|---|---|
-| GPT customizado `Hermex Prazos` | `PREENCHER_LINK_DO_GPT_CUSTOMIZADO` | preencher |
+| GPT customizado `Hermex Prazos` | https://chatgpt.com/gpts/editor/g-6a8609a64d6c81918180bcd32ee76414 | confirmar permissao de leitura |
 | Board Miro | https://miro.com/app/board/uXjVHwPbfwI=/ | confirmado via MCP |
 | Pasta Google Drive `handoff_vendas_posvenda` | https://drive.google.com/drive/folders/1eaeIZOCvHx-dldNU6blgvHKCG-ZX7cyC | confirmado via MCP |
 | Google Sheets `handoff_vendas_posvenda` | https://docs.google.com/spreadsheets/d/15ldumkb96Aqlqd3KOvBzwO2g-xKyNkTbhYJ-Yf8DRL4/edit?usp=drivesdk | confirmado via MCP |
 | Google Sheets `pesquisa_satisfacao` | https://docs.google.com/spreadsheets/d/14oy0JGbaC-7tBf0qCVs0CHmA6OP1y8CRtA2bkOzY1-I/edit?usp=drivesdk | confirmado via MCP |
-| Google Forms de NPS | `PREENCHER_LINK_DO_GOOGLE_FORMS` | preencher |
+| Google Forms de NPS | https://docs.google.com/forms/d/179MySMHWUHGm11pDYwCSQOLecaiGoMyT-jFSWuDNLEg/edit | confirmar permissao de leitura |
 | Workflow n8n `Hermex - NPS Automacao` | `https://fredjml.app.n8n.cloud/workflow/aKtnS8C5ofaxZiG1` | confirmar permissao/compartilhamento |
-| Dashboard Looker Studio | `PREENCHER_LINK_DO_LOOKER_STUDIO` | preencher |
+| Dashboard Looker Studio | https://datastudio.google.com/reporting/6e494226-23fc-4c57-b366-584b8867930a/page/U446F/edit | confirmar permissao de leitura |
 | Database/pagina Notion `Processos Hermex Log` | https://app.notion.com/p/3c2fb0968aa381da90a5c07339f5f56a?pvs=204 | confirmado via MCP |
 | Pagina Notion de validacao MCP | https://app.notion.com/p/3c3fb0968aa381918fafc67a33e290a9?pvs=204 | confirmado via MCP |
+
+## Acessos rapidos para correcao
+
+Para facilitar a avaliacao, estes sao os principais pontos de acesso do projeto:
+
+### Acessos externos
+
+| Recurso | Link |
+|---|---|
+| GPT customizado `Hermex Prazos` | https://chatgpt.com/gpts/editor/g-6a8609a64d6c81918180bcd32ee76414 |
+| Board Miro | https://miro.com/app/board/uXjVHwPbfwI=/ |
+| Pasta Google Drive `handoff_vendas_posvenda` | https://drive.google.com/drive/folders/1eaeIZOCvHx-dldNU6blgvHKCG-ZX7cyC |
+| Google Sheets `handoff_vendas_posvenda` | https://docs.google.com/spreadsheets/d/15ldumkb96Aqlqd3KOvBzwO2g-xKyNkTbhYJ-Yf8DRL4/edit?usp=drivesdk |
+| Google Sheets `pesquisa_satisfacao` | https://docs.google.com/spreadsheets/d/14oy0JGbaC-7tBf0qCVs0CHmA6OP1y8CRtA2bkOzY1-I/edit?usp=drivesdk |
+| Google Forms de NPS | https://docs.google.com/forms/d/179MySMHWUHGm11pDYwCSQOLecaiGoMyT-jFSWuDNLEg/edit |
+| Workflow n8n `Hermex - NPS Automacao` | https://fredjml.app.n8n.cloud/workflow/aKtnS8C5ofaxZiG1 |
+| Dashboard Looker Studio | https://datastudio.google.com/reporting/6e494226-23fc-4c57-b366-584b8867930a/page/U446F/edit |
+| Base Notion `Processos Hermex Log` | https://app.notion.com/p/3c2fb0968aa381da90a5c07339f5f56a?pvs=204 |
+| Pagina Notion de validacao MCP | https://app.notion.com/p/3c3fb0968aa381918fafc67a33e290a9?pvs=204 |
+
+### Acessos internos no repositorio
+
+| Recurso | Caminho |
+|---|---|
+| README principal | `README.md` |
+| Evidencias detalhadas | `READM.md` |
+| Dossie final de evidencias | `Analise/Evidencias_Projeto_Hermex_Log.docx` |
+| Prints originais | `Analise/evidencias/` |
+| Relatorio de validacao | `Analise/relatorio_validacao_hermex_log.md` |
+| Relatorio final | `Analise/relatorio_final_hermex_log.md` |
+| Relatorio executivo | `Analise/relatorio_executivo_hermex_log.md` |
+| Artefatos de configuracao | `artefatos/` |
+| Codigo-fonte | `src/` |
+| Testes automatizados | `test/` |
+| Bases de dados | `dados/` |
+
+Se algum link externo falhar na hora da correcao, a validacao pode continuar pelos arquivos locais acima, especialmente pelo `README.md`, pelos relatorios em `Analise/` e pelo arquivo `Analise/Evidencias_Projeto_Hermex_Log.docx`.
 
 ## Evidencias visuais disponiveis
 
@@ -72,6 +160,31 @@ Se algum link nao puder ser aberto pelo professor, coloque capturas em `Analise/
 | `10_notion_baseB.png` | Pagina de SLA com prazo de 5 dias corridos | feito |
 
 As capturas tambem foram reunidas em `Analise/Evidencias_Projeto_Hermex_Log.docx`, com legenda e organizacao por criterio de avaliacao.
+
+## Screenshots principais
+
+As imagens abaixo sintetizam os pontos mais importantes da solucao. As versoes originais estao em `Analise/evidencias/`.
+
+### Fluxo no Miro
+
+![Fluxograma no Miro](Analise/evidencias/03_miro_fluxograma.png)
+
+### Matriz RACI
+
+![Matriz RACI no Google Sheets](Analise/evidencias/04_sheets_matriz_raci.png)
+
+### Workflow n8n
+
+![Execucao detratora no n8n](Analise/evidencias/06_n8n_detrator.png)
+
+### Dashboard no Looker Studio
+
+![Dashboard no Looker Studio - scorecards](Analise/evidencias/09_looker_dashboard_1.png)
+![Dashboard no Looker Studio - mapa e leitura por estado](Analise/evidencias/09_looker_dashboard_2.png)
+
+### Base no Notion
+
+![Base de conhecimento no Notion](Analise/evidencias/10_notion_base.png)
 
 ## Como ativar e testar os disparos reais no n8n
 
@@ -103,6 +216,17 @@ Nao explique.
 - `dados/`: datasets do desafio.
 - `Analise/`: relatorios finais em Markdown e Word.
 
+## Desafios enfrentados e como foram superados
+
+Durante a implementacao, os principais desafios foram estes:
+
+- Regras inicialmente contraditorias de SLA e classificacao de detrator: a solucao foi registrar uma regra oficial unica no projeto e refleti-la nos artefatos.
+- Ausencia inicial da aba `Matriz RACI`: a estrutura foi criada no Google Sheets para explicitar responsabilidade operacional.
+- Dificuldade de reproduzir evidencias em plataformas SaaS: resolvemos isso gerando prints padronizados e um dossie `.docx` unico.
+- Fluxo do Looker Studio sem mapa correto por estado: o ajuste foi criar um campo geografico especifico para UF do Brasil e usar essa dimensao no mapa.
+- Importacao e demonstracao do fluxo n8n para evidencias: usamos um workflow dedicado para prova visual e mantivemos o de producao separado.
+- Necessidade de automacao sem perda de controle: adotamos aprovacao humana antes de qualquer resposta individual sensivel.
+
 ## Regra oficial adotada
 
 - SLA: 5 dias corridos, prazo exato, fretes comum e expresso.
@@ -111,6 +235,54 @@ Nao explique.
 - Respostas externas: exigem aprovacao humana.
 - Retencao: marcar para expiracao em 2 dias; apagar ate 7 dias corridos.
 
+## Insights e recomendacoes
+
+Os testes e o dashboard apontaram alguns aprendizados relevantes:
+
+- Estados com pior nota media merecem acompanhamento mais proximo, pois concentraram percepcao negativa de prazo e comunicacao.
+- Atraso apareceu como um dos principais gatilhos de detracao, o que reforca a importancia de SLA claro e rastreio consistente.
+- O handoff entre vendas e pos-vendas precisa estar documentado para evitar perda de contexto quando um cliente reclama.
+- O dashboard por estado ajuda a transformar comentarios isolados em sinal gerencial acionavel.
+- A base do Notion reduz dependencia de memoria individual e acelera resposta operacional.
+
+Recomendacoes praticas:
+
+1. Padronizar o SLA oficial em um unico ponto de verdade.
+2. Acionar pos-vendas imediatamente para notas menores que `6`.
+3. Manter aprovacao humana para respostas que envolvam reembolso, devolucao ou compensacao.
+4. Revisar periodicamente os estados com pior nota media e maior concentracao de detratores.
+5. Expandir a automacao apenas depois de estabilizar governanca, logs e revisao humana.
+
+## Relatorio de correcao com apoio de IA
+
+Esta entrega tambem foi preparada para receber um relatorio de correcao com apoio de IA, destacando:
+
+- pontos fortes da implementacao;
+- pontos de atencao;
+- recomendacoes de melhoria;
+- proximos estudos sugeridos.
+
+Os relatorios de apoio da entrega estao em `Analise/`, com destaque para:
+
+- `Analise/relatorio_validacao_hermex_log.md`
+- `Analise/relatorio_final_hermex_log.md`
+- `Analise/relatorio_executivo_hermex_log.md`
+
 ## Observacoes de seguranca
 
 Credenciais, tokens, chaves Gemini, OAuth, senhas e dados reais nao pertencem ao repositorio. A entrega deve usar links com permissao de leitura e capturas anonimizadas sempre que houver dados pessoais.
+
+## Resumo pratico do ZIP
+
+Para envio no checkpoint, o `.zip` deve conter a versao auditavel inteira do projeto. A recomendacao pratica e compactar:
+
+1. codigo
+2. testes
+3. dados
+4. artefatos SaaS
+5. `README.md` completo
+6. evidencias em `.docx`
+7. prints originais
+8. relatorios de analise e validacao
+
+Em outras palavras, alem do repositorio no GitHub, o `.zip` deve carregar todo o material necessario para correção offline, incluindo implementacao, artefatos, relatorios e evidencias.
