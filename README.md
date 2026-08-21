@@ -16,7 +16,8 @@ Este repositorio deve ser entregue junto com os links de leitura das ferramentas
 | Testes | `test/` | Testes automatizados | feito |
 | Relatorio Markdown | `Analise/relatorio_validacao_hermex_log.md` | Relatorio de validacao | feito |
 | Relatorio Word | `Analise/relatorio_validacao_hermex_log.docx` | Relatorio final para entrega | feito |
-| Capturas | `Analise/evidencias/` | Evidencias visuais quando link publico nao for possivel | preparar/apresentar |
+| Capturas | `Analise/evidencias/` | Evidencias visuais quando link publico nao for possivel | feito |
+| Dossie final de evidencias | `Analise/Evidencias_Projeto_Hermex_Log.docx` | Documento unico com as capturas organizadas | feito |
 
 ## Execucao rapida
 
@@ -51,22 +52,26 @@ Antes de enviar, confirme que os links abaixo estao com permissao de leitura par
 | Database/pagina Notion `Processos Hermex Log` | https://app.notion.com/p/3c2fb0968aa381da90a5c07339f5f56a?pvs=204 | confirmado via MCP |
 | Pagina Notion de validacao MCP | https://app.notion.com/p/3c3fb0968aa381918fafc67a33e290a9?pvs=204 | confirmado via MCP |
 
-## Evidencias visuais recomendadas
+## Evidencias visuais disponiveis
 
 Se algum link nao puder ser aberto pelo professor, coloque capturas em `Analise/evidencias/` com estes nomes sugeridos:
 
 | Arquivo sugerido | Conteudo esperado | Status |
 |---|---|---|
-| `01_gpt_instrucoes.png` | GPT Hermex Prazos com instrucoes/configuracao | pendente |
-| `02_gpt_testes_sp_ba_am.png` | Testes SP, BA e AM no GPT customizado | pendente |
-| `03_miro_fluxograma.png` | Fluxograma no Miro com pontos de automacao | pendente |
-| `04_sheets_matriz_raci.png` | Aba `Matriz RACI` no Google Sheets | pendente |
-| `05_forms_nps.png` | Google Forms com ID Pedido, Nota NPS e Comentario | pendente |
-| `06_n8n_detrator.png` | Execucao detratora no n8n | pendente |
-| `07_n8n_promotor.png` | Execucao promotora no n8n | pendente |
-| `08_gmail_emails_teste.png` | E-mails recebidos/enviados em conta de teste | pendente |
-| `09_looker_dashboard.png` | Dashboard com scorecards, mapa, barras e tabela | pendente |
-| `10_notion_base.png` | Notion com Politica de Devolucao, Reembolso e SLA | pendente |
+| `01_gpt_instrucoes.png` | GPT Hermex Prazos com instrucoes/configuracao | feito |
+| `02_gpt_testes_sp_ba_am.png` | Testes SP, BA e AM no GPT customizado | feito |
+| `03_miro_fluxograma.png` | Fluxograma no Miro com pontos de automacao | feito |
+| `04_sheets_matriz_raci.png` | Aba `Matriz RACI` no Google Sheets | feito |
+| `05_forms_nps.png` | Google Forms com ID Pedido, Nota NPS e Comentario | feito |
+| `06_n8n_detrator.png` | Execucao detratora no n8n | feito |
+| `07_n8n_promotor.png` | Execucao promotora no n8n | feito |
+| `08_gmail_emails_teste.png` | E-mails recebidos/enviados em conta de teste | feito |
+| `09_looker_dashboard_1.png` | Scorecards do dashboard no Looker Studio | feito |
+| `09_looker_dashboard_2.png` | Mapa, grafico por estado e tabela por estado | feito |
+| `10_notion_base.png` | Base Notion com as paginas principais | feito |
+| `10_notion_baseB.png` | Pagina de SLA com prazo de 5 dias corridos | feito |
+
+As capturas tambem foram reunidas em `Analise/Evidencias_Projeto_Hermex_Log.docx`, com legenda e organizacao por criterio de avaliacao.
 
 ## Como ativar e testar os disparos reais no n8n
 
@@ -109,4 +114,3 @@ Nao explique.
 ## Observacoes de seguranca
 
 Credenciais, tokens, chaves Gemini, OAuth, senhas e dados reais nao pertencem ao repositorio. A entrega deve usar links com permissao de leitura e capturas anonimizadas sempre que houver dados pessoais.
-
