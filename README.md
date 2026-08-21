@@ -258,9 +258,29 @@ Recomendacoes praticas:
 Esta entrega tambem foi preparada para receber um relatorio de correcao com apoio de IA, destacando:
 
 - pontos fortes da implementacao;
-- pontos de atencao;
+- pontos de atencao da entrega;
 - recomendacoes de melhoria;
 - proximos estudos sugeridos.
+
+Arquivo gerado para a entrega:
+
+- `Analise/relatorio_correcao_ia.md`
+
+## Conteudo final recomendado no ZIP
+
+Para enviar a versao auditavel completa, o `.zip` deve conter pelo menos:
+
+1. `README.md`
+2. `READM.md`
+3. `package.json`
+4. `src/`
+5. `test/`
+6. `dados/`
+7. `artefatos/`
+8. `Analise/Evidencias_Projeto_Hermex_Log.docx`
+9. `Analise/relatorio_correcao_ia.md`
+10. `Analise/evidencias/`
+11. relatorios complementares de `Analise/` em `.md` e `.docx`
 
 Os relatorios de apoio da entrega estao em `Analise/`, com destaque para:
 
