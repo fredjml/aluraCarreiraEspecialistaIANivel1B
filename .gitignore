@@ -16,6 +16,8 @@ Analise/_lo_impl2/
 Analise/_lo_profile/
 Analise/_render_implementacao/
 Analise/_render_relatorio/
+Analise/checkpoint_pdftotext*.txt
+tools/
 **/cache/
 **/crash/
 **/tmp/

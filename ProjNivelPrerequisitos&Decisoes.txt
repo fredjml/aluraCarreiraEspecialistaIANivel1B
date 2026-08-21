@@ -144,3 +144,128 @@ Retenção dos dados: Dados e logs mantidos por 2 dias, em 7 dias apagados, dias
 
 
 
+Não achei esta aba RACI na minha  handoff_vendas_posvenda
+1. Abra handoff_vendas_posvenda.
+2. Vá na aba Matriz RACI
+
+
+
+
+Google Sheets / RACI
+- Abra handoff_vendas_posvenda.
+- Vá na aba Matriz RACI.
+- Mostre as colunas de atividade, vendas, pós-vendas, n8n, Correios e liderança.
+- Salve como Analise/evidencias/04_sheets_matriz_raci.png.
+
+Google Forms
+- Abra o formulário NPS.
+- Mostre ID do Pedido, Nota NPS e Comentário.
+- Salve como Analise/evidencias/05_forms_nps.png.
+
+n8n detrator
+- Envie uma resposta no Forms com nota 4 ou 5.
+- Abra a execução no n8n.
+- Mostre o caminho detrator, IF < 6, classificação e alerta.
+- Salve como Analise/evidencias/06_n8n_detrator.png.
+
+n8n promotor
+- Envie uma resposta com nota 9.
+- Abra a execução no n8n.
+- Mostre o caminho de agradecimento.
+- Salve como Analise/evidencias/07_n8n_promotor.png.
+
+Gmail ou TempEmail
+- Abra o e-mail recebido de alerta ou agradecimento.
+- Evite expor dados sensíveis.
+- Salve como Analise/evidencias/08_gmail_emails_teste.png.
+
+Looker Studio
+- Abra o dashboard.
+- Mostre NPS geral, promotores, detratores, mapa, barras por estado e tabela.
+- Se não couber tudo:
+  - Analise/evidencias/09_looker_dashboard_1.png
+  - Analise/evidencias/09_looker_dashboard_2.png
+- Se couber em um print só:
+  - Analise/evidencias/09_looker_dashboard.png.
+
+Notion
+- Abra Processos Hermex Log.
+- Mostre as páginas:
+  - Política de Devolução
+  - Processo de Reembolso
+  - SLA de Entrega por Região
+- Se possível, abra a página de SLA mostrando 5 dias corridos.
+- Salve como Analise/evidencias/10_notion_base.png.
+
+
+GitHub: Crie um repositório no GitHub para este projeto. Inclua seu código e, o mais importante, um README.md detalhado. No README, explique o cenário de negócio, as perguntas que você respondeu, as ferramentas que utilizou, os desafios que enfrentou (e como os superou!), e os principais insights e recomendações que você gerou. Adicione screenshots da sua solução!
+Gere um Relatório de Correção com apoio de IA para analisar sua entrega, destacar pontos fortes, indicar pontos de atenção e orientar seus próximos estudos.
+Para gerar o Relatório de Correção, compacte sua entrega em um arquivo .zip antes de enviar. Esse formato permite reunir todos os arquivos necessários do exercício em uma única entrega, independentemente do tipo de conteúdo solicitado no Checkpoint.
+
+
+Agora veja o que falta para gerar o zip da entrega:
+GitHub: Crie um repositório no GitHub para este projeto. Inclua seu código e, o mais importante, um README.md detalhado. No README, explique o cenário de negócio, as perguntas que você respondeu, as ferramentas que utilizou, os desafios que enfrentou (e como os superou!), e os principais insights e recomendações que você gerou. Adicione screenshots da sua solução!
+Gere um Relatório de Correção com apoio de IA para analisar sua entrega, destacar pontos fortes, indicar pontos de atenção e orientar seus próximos estudos.
+Para gerar o Relatório de Correção, compacte sua entrega em um arquivo .zip antes de enviar. Esse formato permite reunir todos os arquivos necessários do exercício em uma única entrega, independentemente do tipo de conteúdo solicitado no Checkpoint.
+O que devemos colocar neste .zip para enviar?
+O que vc considerou mesmo para eu enviar além do repositório do GitHUB o .docx com eviências, o README.md bem completo com todos os testes e intruções para validação  e mais o que?
+
+
+Agora gere o .zip com suas sugetões abaixo:
+Resumo finalAlém do GitHub, eu enviaria no .zip:
+- código
+- testes
+- dados
+- artefatos SaaS
+- README.md completo
+- .docx de evidências
+- prints originais
+- relatórios de análise/validação
+- e mais o relatório de correção com IA, que é o único item que eu ainda trataria como faltante explícito
+
+
+O que ainda pode ser melhorado de verdade
+Se quisermos deixar o desafio ainda melhor, eu priorizaria isto:
+1. Executar e registrar teste real de promotor no n8n
+   - hoje a evidência mais forte está no caminho detrator
+   - vale garantir um print igualmente claro do fluxo >= 6
+2. Padronizar os links externos em modo leitura
+   - alguns links no README estão em tela de edição
+   - melhor trocar por links compartilháveis de leitura quando possível
+3. Adicionar uma matriz “Requisito x Evidência” no README
+   - algo como:
+     - requisito
+     - artefato
+     - print
+     - link
+   - isso ajuda muito o corretor
+4. Explicitar ainda mais a diferença entre regra operacional e regra analítica
+   - operacional: detrator < 6 para automação
+   - analítica: NPS com detratores < 7 e promotores > 8
+   - isso já está documentado, mas pode ganhar uma tabela curta
+5. Adicionar um checklist final de validação externa
+   - GPT responde SP/BA/AM
+   - Forms grava resposta
+   - Sheets atualiza
+   - n8n dispara
+   - Gmail recebe
+   - Looker reflete
+   - Notion contém base
+   - isso fecha a ponta a ponta
+6. Melhorar a evidência do dashboard
+   - já ficou boa
+   - mas uma versão extra com zoom/corte mais limpo no gráfico+tabela deixaria mais legível
+Minha leitura honesta
+Hoje o projeto está mais forte do que a avaliação inicial do PDF sugere.
+Os maiores gaps que o PDF apontava eram:
+- evidência externa
+- documentação
+- integração SaaS real
+E nós avançamos bastante nesses três.
+Se eu resumisse o que falta em 3 itens
+- trocar links para leitura
+- reforçar teste real do caminho promotor no n8n
+- criar uma tabela final “critério de avaliação x evidência”
+
+
+
