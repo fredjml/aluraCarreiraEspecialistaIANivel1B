@@ -195,43 +195,212 @@ Dicas de troubleshooting para a 2ª etapa:
 Se o fluxograma ficar muito extenso, foque no "caminho feliz" primeiro e depois adicione os caminhos alternativos (ex.: entrega não confirmada, cliente insatisfeito).
 Se houver dúvida sobre quem é Responsible vs. Accountable na Matriz RACI, lembre-se: Responsible é quem executa a atividade, Accountable é quem aprova ou assume a responsabilidade final. Sistemas podem ser Responsible.
 Se a planilha de handoff parecer incompleta, revise se todos os campos necessários para o workflow do n8n estão presentes (id_pedido, cliente, email_cliente são essenciais).
+
 3ª Etapa: Automação do fluxo de NPS com n8n e classificação por IA
 Com o processo mapeado e as responsabilidades definidas, é hora de construir a automação. A tarefa é criar um workflow no n8n que monitore novas respostas de NPS, classifique os comentários com IA (Gemini) e notifique a equipe de pós-vendas por e-mail.
-Pergunta-chave: "Como construir um workflow no n8n que integre coleta de dados, lógica condicional baseada em regras de negócio e classificação por IA, garantindo que a equipe receba notificações acionáveis com validação humana?"
+Pergunta-chave: "Como construir um workflow no n8n que integre coleta de dados, lógica condicional baseada em regras de negócio e classificação por IA, 
+garantindo que a equipe receba notificações acionáveis com validação humana?"
 Sua missão:
-Importe o dataset pesquisa_satisfacao.csv para o Google Sheets (na planilha pesquisa_satisfacao). Crie um Google Forms com os campos: ID do Pedido, Nota NPS (0-10) e Comentário. Configure o Forms para gravar respostas em uma nova aba da mesma planilha.
-No n8n, crie um workflow chamado "Hermex — NPS Automação". Configure um gatilho do Google Sheets que dispare quando uma nova linha for adicionada à aba de respostas do Forms. Teste o gatilho adicionando uma resposta fictícia e fixe os dados com Pin Data.
-Adicione um nó condicional (if) que verifique se a nota NPS é menor que 6 (detrator). Para o caminho "verdadeiro" (detrator), adicione um nó do Gemini (via API) com um prompt que classifique o comentário em uma das categorias: Atraso, Defeito, Atendimento, Embalagem ou Outro. O prompt deve restringir a resposta a uma única palavra dentre essas categorias.
-Após a classificação, configure um nó Gmail que envie um e-mail de notificação à equipe de pós-vendas contendo: nome do cliente (variável dinâmica), nota NPS, categoria classificada pela IA e o comentário original (para validação humana). Use a sintaxe {{$json['campo']}} para inserir dados dinâmicos.
+Importe o dataset pesquisa_satisfacao.csv para o Google Sheets (na planilha pesquisa_satisfacao). Crie um Google Forms com os campos: ID do Pedido, Nota 
+NPS (0-10) e Comentário. Configure o Forms para gravar respostas em uma nova aba da mesma planilha.
+No n8n, crie um workflow chamado "Hermex — NPS Automação". Configure um gatilho do Google Sheets que dispare quando uma nova linha for adicionada à aba 
+de respostas do Forms. Teste o gatilho adicionando uma resposta fictícia e fixe os dados com Pin Data.
+Adicione um nó condicional (if) que verifique se a nota NPS é menor que 6 (detrator). Para o caminho "verdadeiro" (detrator), adicione um nó do Gemini (via API) 
+com um prompt que classifique o comentário em uma das categorias: Atraso, Defeito, Atendimento, Embalagem ou Outro. O prompt deve restringir a resposta a uma
+única palavra dentre essas categorias.
+Após a classificação, configure um nó Gmail que envie um e-mail de notificação à equipe de pós-vendas contendo: nome do cliente (variável dinâmica), nota NPS, 
+categoria classificada pela IA e o comentário original (para validação humana). Use a sintaxe {{$json['campo']}} para inserir dados dinâmicos.
 Para o caminho "falso" (nota >= 6), configure um segundo nó Gmail que envie um e-mail de agradecimento ao cliente, mencionando o nome e agradecendo pelo feedback.
-Teste o workflow completo com pelo menos 2 cenários: um detrator (nota < 6) e um promotor (nota >= 9). Verifique se os e-mails foram enviados corretamente. Use o TempEmail.org se necessário para não poluir caixas de entrada reais.
+Teste o workflow completo com pelo menos 2 cenários: um detrator (nota < 6) e um promotor (nota >= 9). Verifique se os e-mails foram enviados corretamente. 
+Use o TempEmail.org se necessário para não poluir caixas de entrada reais.
 Ferramentas: n8n, Google Sheets, Google Forms, Gemini, Gmail
 Dicas de troubleshooting para a 3ª etapa:
 Se o gatilho do Google Sheets ficar esperando indefinidamente, lembre-se de que é necessário adicionar uma nova linha na planilha para que ele dispare. Adicione uma resposta manualmente pelo Google Forms.
 Se o Gemini retornar explicações em vez de uma única palavra de categoria, ajuste o prompt para ser mais restritivo: "Responda APENAS com uma das seguintes palavras: Atraso, Defeito, Atendimento, Embalagem, Outro. Nenhuma explicação adicional."
 Se o e-mail chegar sem os dados dinâmicos, verifique se a sintaxe das expressões está correta e se o nó anterior foi executado com sucesso (confira os outputs de cada nó).
+
 4ª Etapa: Dashboard de NPS no Looker Studio e base de conhecimento no Notion
 A etapa final integra análise de dados com documentação. A tarefa é construir um dashboard que permita à liderança da Hermex Log acompanhar o NPS por região e SLA de entrega, e documentar os processos internos no Notion para futura integração com um chatbot de IA.
 Pergunta-chave: "Como combinar visualização de dados quantitativos (dashboard de NPS e SLA) com documentação semântica (base de conhecimento no Notion) para criar um ecossistema de dados que sustente tanto a tomada de decisão humana quanto a alimentação futura de agentes de IA?"
 Sua missão:
-No Looker Studio, conecte a planilha pesquisa_satisfacao do Google Sheets como fonte de dados. Ajuste os tipos de campos: estado como tipo geográfico (subdivisão de país nível 1), data_pedido, data_envio e data_recebimento como datas, nota_nps como número.
+No Looker Studio, conecte a planilha pesquisa_satisfacao do Google Sheets como fonte de dados. Ajuste os tipos de campos: estado como tipo geográfico 
+(subdivisão de país nível 1), data_pedido, data_envio e data_recebimento como datas, nota_nps como número.
 Crie os seguintes campos calculados no Looker Studio:
 Promotores: IF(nota_nps > 8, 1, 0)
 Detratores: IF(nota_nps < 7, 1, 0)
 NPS: (SUM(Promotores)/COUNT(nota_nps)) - (SUM(Detratores)/COUNT(nota_nps)) — formate como porcentagem.
 Dias até envio: DATE_DIFF(data_envio, data_pedido) — use como métrica (média).
 Dias até entrega: DATE_DIFF(data_recebimento, data_pedido) — use como métrica (média).
-Monte o dashboard com pelo menos 4 visualizações: (a) Scorecard com o NPS geral, total de promotores e total de detratores; (b) Gráfico de mapa do Brasil colorido pelo NPS médio por estado (azul para alto, vermelho para baixo); (c) Gráfico de barras com a média de dias até entrega por estado; (d) Tabela com estado, quantidade de respostas, NPS, média de dias até envio e média de dias até entrega.
+Monte o dashboard com pelo menos 4 visualizações: (a) Scorecard com o NPS geral, total de promotores e total de detratores; (b) Gráfico de mapa do Brasil colorido 
+pelo NPS médio por estado (azul para alto, vermelho para baixo); (c) Gráfico de barras com a média de dias até entrega por estado; (d) Tabela com estado, quantidade 
+de respostas, NPS, média de dias até envio e média de dias até entrega.
 No Notion, crie um database chamado "Processos Hermex Log" com pelo menos 3 páginas:
 Política de Devolução: descreva em linguagem natural as regras de devolução (prazo de 7 dias, condições do produto, processo de solicitação).
 Processo de Reembolso: descreva etapas, prazos (até 10 dias úteis) e condições.
 SLA de Entrega por Região: documente os prazos por região (Sudeste: 2-5 dias, Sul: 3-6 dias, Centro-Oeste: 4-7 dias, Nordeste: 6-12 dias, Norte: 8-16 dias).
-No Bloco de notas, redija um documento de governança de dados com os seguintes itens: (a) quem é responsável pela atualização de cada base no Notion (use a lógica da Matriz RACI); (b) com que frequência cada base deve ser revisada; (c) quais riscos existem se a base ficar desatualizada (respostas incorretas de futuros chatbots, alucinações); (d) por que dados semânticos (textos interpretados) são mais eficazes para alimentar modelos de linguagem do que dados operacionais brutos.
+No Bloco de notas, redija um documento de governança de dados com os seguintes itens: (a) quem é responsável pela atualização de cada base no Notion (use a lógica 
+da Matriz RACI); (b) com que frequência cada base deve ser revisada; (c) quais riscos existem se a base ficar desatualizada (respostas incorretas de futuros chatbots, alucinações); 
+(d) por que dados semânticos (textos interpretados) são mais eficazes para alimentar modelos de linguagem do que dados operacionais brutos.
 Ferramentas: Looker Studio, Google Sheets, Notion, Bloco de notas
 Dicas de troubleshooting para a 4ª etapa:
 Se o mapa do Looker Studio não reconhecer alguns estados, verifique se o campo está configurado como tipo geográfico correto. Tente alterar de "subdivisão do país" para "endereço" ou vice-versa. Certifique-se de que os nomes dos estados estão padronizados (siglas de 2 letras).
 Se o campo calculado do NPS aparecer como soma em vez de valor único no scorecard, ajuste a agregação do gráfico para que exiba o campo calculado sem agregação adicional.
 Se o Notion não parecer adequado para documentação técnica, lembre-se de que cada parágrafo é um bloco — escreva textos coesos e completos em cada seção para que, em uma futura vetorização, os chunks tenham qualidade semântica.
+
+
+Precisamos: conta Google com permissão de edição. 
+
+Precisamos: workspace n8n, credenciais Google, chave Gemini e caixa de e-mail de teste.
+
+Precisamos: acesso de edição ao Looker Studio e à planilha Google.
+
+Precisamos: link do workspace ou página do Notion com permissão de edição.
+
+Precisamos: link do board Miro com permissão de edição.
+
+7. Evidências finais
+Ao concluir, guardar:
+
+links compartilháveis
+capturas do dashboard
+captura do database Notion
+captura do workflow n8n
+histórico dos dois testes
+e-mails recebidos
+resposta fictícia do Forms
+execução do gatilho do Google Sheets
+Essas evidências devem ser adicionadas ao relatorio_final_hermex_log.docx.
+
+O que precisamos receber para executar
+acesso ou links do Miro, Notion, n8n e Google
+permissões de edição
+caixa de e-mail para teste
+autorização para executar os fluxos
+
+
+Updated todo list
+
+Vou explicar uma forma segura e prática de preparar os acessos, sem compartilhar senhas, 
+tokens ou chaves pelo chat, e deixar um modelo de autorização que você pode enviar junto 
+com os links.
+
+## 1. Google
+
+No Google Drive:
+
+1. Crie ou abra as planilhas.
+2. Clique em **Compartilhar**.
+3. Adicione o e-mail que será usado para executar a tarefa.
+4. Selecione **Editor**.
+5. Copie o link da planilha e envie aqui.
+
+Para o Google Forms:
+
+1. Abra o formulário.
+2. Clique em **Mais opções > Adicionar colaboradores**.
+3. Adicione o mesmo e-mail como editor.
+4. Envie o link do formulário.
+
+## 2. Miro
+
+1. Abra o board.
+2. Clique em **Share/Compartilhar**.
+3. Adicione o e-mail executor como **Can edit/Pode editar**.
+4. Copie o link do board e envie aqui.
+
+## 3. Notion
+
+1. Abra a página ou workspace.
+2. Clique em **Share**.
+3. Convide o e-mail executor.
+4. Conceda permissão **Can edit**.
+5. Envie o link da página.
+
+## 4. n8n
+
+1. Abra o workflow ou projeto no n8n.
+2. Convide o e-mail executor como membro com permissão de edição.
+3. Envie somente a URL do workspace ou workflow.
+4. Não envie senha, token, cookie ou chave de API.
+
+As credenciais do Google, Gemini e Gmail devem ser cadastradas diretamente na tela 
+de credenciais do n8n. Você pode fazer isso durante a execução, sem revelar os valores.
+
+## 5. Caixa de e-mail para teste
+
+Forneça apenas o endereço da caixa de teste, por exemplo:
+
+```text
+hermex.teste@gmail.com
+```
+
+Não envie:
+
+- senha
+- código de autenticação
+- token
+- acesso à caixa pessoal
+
+O ideal é usar uma conta descartável ou uma caixa específica para testes.
+
+## 6. Autorização passo a passo
+
+Você pode enviar uma autorização como esta:
+
+```text
+Autorizo a execução passo a passo das configurações do projeto Hermex Log
+nas plataformas Google Sheets, Google Forms, Looker Studio, Miro, Notion e n8n.
+
+Autorizo:
+- criar e editar planilhas, abas e formulários;
+- criar o dashboard do Looker Studio;
+- criar o database e as páginas do Notion;
+- criar ou editar o board do Miro;
+- importar e configurar o workflow no n8n;
+- executar testes com dados fictícios;
+- enviar mensagens somente para a caixa de e-mail de teste;
+- pausar antes de qualquer publicação definitiva ou envio para clientes reais.
+
+Não autorizo:
+- uso de dados reais de clientes fora das plataformas;
+- envio de e-mails para clientes reais;
+- decisões automáticas de reembolso;
+- compartilhamento público dos documentos;
+- alteração ou exclusão de dados existentes sem confirmação.
+```
+
+## Modelo para enviar os links
+
+```text
+Google Sheets:
+[cole o link]
+
+Google Forms:
+[cole o link]
+
+Looker Studio:
+[cole o link, se já existir]
+
+Miro:
+[cole o link]
+
+Notion:
+[cole o link]
+
+n8n:
+[cole a URL do workspace ou workflow]
+
+E-mail de teste:
+[digite somente o endereço]
+
+Autorização:
+Autorizo a execução passo a passo conforme o modelo acima.
+```
+
+Importante: o e-mail que receberá as permissões precisa estar definido antes. 
+Sem ele, não é possível conceder acesso diretamente.
+
+
 
 
 
@@ -314,12 +483,17 @@ Depois, abra uma conversa nova e escreva:
 Teste o Browser e abra https://app.notion.com/p/234fb0968aa380c3be25d11019c5877d
 
 
-11:11 PM
+Transfira artefatos/07_notion_base_conhecimento.md para o Notion e artefatos/01_planejamento_assistente_gpt.md para o 
+Miro usando as abas abertas no navegador integrado.
+
+ E:\ProjAlura\CarreiraEspecialistaEmIAB\Nivel1
 
 
 
 
+Developer: Reload Window
 
+“VS Code recarregado; continuar POC Hermex.”
 
 
 

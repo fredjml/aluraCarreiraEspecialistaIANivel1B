@@ -12,10 +12,10 @@ Após a devolução e conferência, o pós-vendas registra o pedido, valida eleg
 
 ## SLA de Entrega por Região
 
-- Sudeste: 2-5 dias
-- Sul: 3-6 dias
-- Centro-Oeste: 4-7 dias
-- Nordeste: 6-12 dias
-- Norte: 8-16 dias
+- Sudeste: 5 dias corridos
+- Sul: 5 dias corridos
+- Centro-Oeste: 5 dias corridos
+- Nordeste: 5 dias corridos
+- Norte: 5 dias corridos
 
-Os prazos são estimativas e podem variar por feriados, áreas remotas e incidentes operacionais. A atualização da base é responsabilidade de José e a aprovação das mudanças cabe à Liderança.
+O SLA oficial aprovado para a POC é de prazo exato de 5 dias corridos para todas as regiões, tanto no frete comum quanto no expresso. Os prazos são estimativas operacionais e qualquer exceção por feriados, áreas remotas ou incidentes deve passar por confirmação humana. A atualização da base é responsabilidade de José e a aprovação das mudanças cabe à Liderança.
