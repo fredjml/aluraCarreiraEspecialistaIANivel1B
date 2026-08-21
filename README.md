@@ -86,20 +86,38 @@ Para revisar o projeto ponta a ponta sem depender apenas das plataformas externa
 5. Abra `Analise/Evidencias_Projeto_Hermex_Log.docx` para revisar as evidencias visuais em ordem de correcao.
 6. Se necessario, confira tambem as imagens originais em `Analise/evidencias/`.
 
+## Matriz de criterios e evidencias
+
+| Criterio de avaliacao | O que foi entregue | Evidencia principal | Caminho / link de apoio | Status |
+|---|---|---|---|---|
+| Repositorio GitHub com codigo e documentacao | Projeto versionado com historico de commits e README detalhado | Estrutura completa do repositorio e documentacao central | `README.md` e repositorio GitHub | Concluido |
+| Cenario de negocio e perguntas respondidas | Contexto da Hermex Log, objetivos e perguntas analiticas descritas | Secoes explicativas do desafio e das perguntas de negocio | `README.md` | Concluido |
+| Fluxo do processo pos-venda | Fluxo desenhado e validado visualmente | Print do fluxo no Miro | `Analise/evidencias/03_miro_fluxograma.png`, `artefatos/02_fluxo_pos_venda.mmd` | Concluido |
+| Matriz RACI | Responsabilidades distribuidas entre vendas, pos-venda, n8n, correios e lideranca | Print da planilha com a matriz pronta | `Analise/evidencias/04_sheets_matriz_raci.png`, `artefatos/03_matriz_raci.csv` | Concluido |
+| Formulario NPS | Google Forms estruturado com campos e escala de nota | Print do formulario configurado | `Analise/evidencias/05_forms_nps.png` | Concluido |
+| Automacao no n8n | Workflow com classificacao de detratores e promotores | Evidencias do fluxo, incluindo caminho detrator e caminho promotor em teste real | `artefatos/05_n8n_workflow.json`, `Analise/evidencias/06_n8n_detrator.png`, `Analise/evidencias/07_n8n_promotor.png` | Concluido |
+| Evidencia de e-mail automatizado | Recebimento de alerta / mensagem de teste e disparo do fluxo de agradecimento | Print do e-mail recebido e validacao cruzada com a execucao promotora | `Analise/evidencias/08_gmail_emails_teste.png`, `Analise/evidencias/07_n8n_promotor.png` | Concluido |
+| Dashboard analitico | KPIs de NPS, promotores, detratores, mapa e visao por estado | Dois prints cobrindo os principais graficos | `Analise/evidencias/09_looker_dashboard_1.png`, `Analise/evidencias/09_looker_dashboard_2.png`, `artefatos/06_looker_studio.md` | Concluido |
+| Base de conhecimento no Notion | Base `Processos Hermex Log` com paginas operacionais e SLA | Print da base e da pagina de SLA | `Analise/evidencias/10_notion_base.png`, `Analise/evidencias/10_notion_base_sla.png`, `artefatos/07_notion_base_conhecimento.md` | Concluido |
+| Testes locais | Suite cobrindo regras principais do projeto | Arquivos de teste e comandos de validacao | `test/hermex.test.js`, `package.json` | Concluido |
+| Relatorio de correcao com IA | Autoavaliacao com pontos fortes, pontos de atencao e proximos estudos | Relatorio separado para apoiar a correcao | `Analise/relatorio_correcao_ia.md` | Concluido |
+| Dossie consolidado de evidencias | Documento final reunindo as evidencias do projeto | Arquivo `.docx` pronto para revisao | `Analise/Evidencias_Projeto_Hermex_Log.docx` | Concluido |
+| Pacote final de entrega | Versao auditavel reunida para submissao | Arquivo compactado com todo o material | `Entrega_Hermex_Log_Nivel1_2026-08-21.zip` | Concluido |
+
 ## Links de leitura para o professor
 
-Antes de enviar, confirme que os links abaixo estao com permissao de leitura para o professor. Onde estiver `PREENCHER`, cole o link compartilhavel gerado pela propria ferramenta.
+Antes de enviar, confirme que os links abaixo estao com permissao de leitura para o professor. Quando a plataforma nao oferecer um link publico de leitura simples, a avaliacao pode seguir pelas evidencias locais do repositorio e pelo dossie `.docx`.
 
 | Entrega externa | Link de leitura | Status |
 |---|---|---|
-| GPT customizado `Hermex Prazos` | https://chatgpt.com/gpts/editor/g-6a8609a64d6c81918180bcd32ee76414 | confirmar permissao de leitura |
+| GPT customizado `Hermex Prazos` | link do editor/admin; validar principalmente pelas capturas `01_gpt_instrucoes.png` e `02_gpt_testes_sp_ba_am.png` | acesso administrativo |
 | Board Miro | https://miro.com/app/board/uXjVHwPbfwI=/ | confirmado via MCP |
 | Pasta Google Drive `handoff_vendas_posvenda` | https://drive.google.com/drive/folders/1eaeIZOCvHx-dldNU6blgvHKCG-ZX7cyC | confirmado via MCP |
 | Google Sheets `handoff_vendas_posvenda` | https://docs.google.com/spreadsheets/d/15ldumkb96Aqlqd3KOvBzwO2g-xKyNkTbhYJ-Yf8DRL4/edit?usp=drivesdk | confirmado via MCP |
 | Google Sheets `pesquisa_satisfacao` | https://docs.google.com/spreadsheets/d/14oy0JGbaC-7tBf0qCVs0CHmA6OP1y8CRtA2bkOzY1-I/edit?usp=drivesdk | confirmado via MCP |
-| Google Forms de NPS | https://docs.google.com/forms/d/179MySMHWUHGm11pDYwCSQOLecaiGoMyT-jFSWuDNLEg/edit | confirmar permissao de leitura |
-| Workflow n8n `Hermex - NPS Automacao` | `https://fredjml.app.n8n.cloud/workflow/aKtnS8C5ofaxZiG1` | confirmar permissao/compartilhamento |
-| Dashboard Looker Studio | https://datastudio.google.com/reporting/6e494226-23fc-4c57-b366-584b8867930a/page/U446F/edit | confirmar permissao de leitura |
+| Google Forms de NPS | https://docs.google.com/forms/d/179MySMHWUHGm11pDYwCSQOLecaiGoMyT-jFSWuDNLEg/viewform | preferivel em modo leitura |
+| Workflow n8n `Hermex - NPS Automacao` | ambiente administrativo; validar principalmente pelas capturas `06_n8n_detrator.png`, `07_n8n_promotor.png` e `08_gmail_emails_teste.png` | acesso administrativo |
+| Dashboard Looker Studio | https://datastudio.google.com/reporting/6e494226-23fc-4c57-b366-584b8867930a/page/U446F | preferivel em modo leitura |
 | Database/pagina Notion `Processos Hermex Log` | https://app.notion.com/p/3c2fb0968aa381da90a5c07339f5f56a?pvs=204 | confirmado via MCP |
 | Pagina Notion de validacao MCP | https://app.notion.com/p/3c3fb0968aa381918fafc67a33e290a9?pvs=204 | confirmado via MCP |
 
@@ -111,14 +129,14 @@ Para facilitar a avaliacao, estes sao os principais pontos de acesso do projeto:
 
 | Recurso | Link |
 |---|---|
-| GPT customizado `Hermex Prazos` | https://chatgpt.com/gpts/editor/g-6a8609a64d6c81918180bcd32ee76414 |
+| GPT customizado `Hermex Prazos` | usar as evidencias locais `01_gpt_instrucoes.png` e `02_gpt_testes_sp_ba_am.png`, pois o link disponivel e administrativo |
 | Board Miro | https://miro.com/app/board/uXjVHwPbfwI=/ |
 | Pasta Google Drive `handoff_vendas_posvenda` | https://drive.google.com/drive/folders/1eaeIZOCvHx-dldNU6blgvHKCG-ZX7cyC |
 | Google Sheets `handoff_vendas_posvenda` | https://docs.google.com/spreadsheets/d/15ldumkb96Aqlqd3KOvBzwO2g-xKyNkTbhYJ-Yf8DRL4/edit?usp=drivesdk |
 | Google Sheets `pesquisa_satisfacao` | https://docs.google.com/spreadsheets/d/14oy0JGbaC-7tBf0qCVs0CHmA6OP1y8CRtA2bkOzY1-I/edit?usp=drivesdk |
-| Google Forms de NPS | https://docs.google.com/forms/d/179MySMHWUHGm11pDYwCSQOLecaiGoMyT-jFSWuDNLEg/edit |
-| Workflow n8n `Hermex - NPS Automacao` | https://fredjml.app.n8n.cloud/workflow/aKtnS8C5ofaxZiG1 |
-| Dashboard Looker Studio | https://datastudio.google.com/reporting/6e494226-23fc-4c57-b366-584b8867930a/page/U446F/edit |
+| Google Forms de NPS | https://docs.google.com/forms/d/179MySMHWUHGm11pDYwCSQOLecaiGoMyT-jFSWuDNLEg/viewform |
+| Workflow n8n `Hermex - NPS Automacao` | validar preferencialmente pelas evidencias locais `06_n8n_detrator.png`, `07_n8n_promotor.png` e `08_gmail_emails_teste.png` |
+| Dashboard Looker Studio | https://datastudio.google.com/reporting/6e494226-23fc-4c57-b366-584b8867930a/page/U446F |
 | Base Notion `Processos Hermex Log` | https://app.notion.com/p/3c2fb0968aa381da90a5c07339f5f56a?pvs=204 |
 | Pagina Notion de validacao MCP | https://app.notion.com/p/3c3fb0968aa381918fafc67a33e290a9?pvs=204 |
 
@@ -127,7 +145,7 @@ Para facilitar a avaliacao, estes sao os principais pontos de acesso do projeto:
 | Recurso | Caminho |
 |---|---|
 | README principal | `README.md` |
-| Evidencias detalhadas | `READM.md` |
+| Evidencias detalhadas | `README.md` |
 | Dossie final de evidencias | `Analise/Evidencias_Projeto_Hermex_Log.docx` |
 | Prints originais | `Analise/evidencias/` |
 | Relatorio de validacao | `Analise/relatorio_validacao_hermex_log.md` |
@@ -176,6 +194,7 @@ As imagens abaixo sintetizam os pontos mais importantes da solucao. As versoes o
 ### Workflow n8n
 
 ![Execucao detratora no n8n](Analise/evidencias/06_n8n_detrator.png)
+![Execucao promotora no n8n](Analise/evidencias/07_n8n_promotor.png)
 
 ### Dashboard no Looker Studio
 
@@ -204,9 +223,11 @@ Nao explique.
 7. Ative o workflow somente durante o teste.
 8. Envie uma resposta detratora pelo Forms, por exemplo nota `4`, e confirme a execucao no n8n.
 9. Envie uma resposta promotora pelo Forms, por exemplo nota `9`, e confirme a execucao no n8n.
-10. Verifique o recebimento dos e-mails em Gmail ou TempEmail.
-11. Salve capturas das duas execucoes e dos e-mails em `Analise/evidencias/`.
-12. Desative o workflow se a apresentacao for apenas demonstrativa.
+10. No caminho promotor, verifique explicitamente que a execucao passou pela ramificacao positiva e gerou a mensagem de agradecimento.
+11. Cruce a evidencia do fluxo promotor com o print salvo em `Analise/evidencias/07_n8n_promotor.png`.
+12. Verifique o recebimento dos e-mails em Gmail ou TempEmail.
+13. Salve capturas das duas execucoes e dos e-mails em `Analise/evidencias/`.
+14. Desative o workflow se a apresentacao for apenas demonstrativa.
 
 ## Estrutura
 
